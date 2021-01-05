@@ -1,0 +1,20 @@
+.home__header{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+.heading__Primary{
+    font-size: 6rem;
+    font-family: 'Audiowide', cursive;
+    letter-spacing: 7px;
+    color: #ffffff;
+    word-spacing: 10px;
+
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}

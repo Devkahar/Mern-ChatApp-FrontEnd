@@ -1,0 +1,5 @@
+.layout{
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom right,rgb(203, 2, 230),rgb(255, 176, 5));
+}
