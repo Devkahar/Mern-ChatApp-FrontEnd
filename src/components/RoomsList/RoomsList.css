@@ -1,0 +1,6 @@
+.roomList{
+    margin: 5rem 10rem;
+    display: flex;
+    min-width: 90vw;
+    overflow-x: scroll;
+}

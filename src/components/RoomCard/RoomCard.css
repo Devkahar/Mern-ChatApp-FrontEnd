@@ -1,0 +1,59 @@
+.RoomCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 28rem;
+    background-color: rgba(255, 255, 255, 0.294);
+    height: 28rem;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 5px 8px rgb(170, 71, 71);
+    z-index: 5;
+    transition: all 0.2s ease;
+}
+.RoomCard >h1{
+    font-size: 4rem;
+}
+.addIcon> .MuiSvgIcon-root{
+    font-size: 12rem;
+}
+.RoomCard:hover{
+}
+.card:not(:last-child){
+    margin-right: 6rem;
+}
+.card{
+    display: inline-block;
+}
+.RoomCard>.roomDetails{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    font-size: 2rem;
+    letter-spacing: 1.2px;
+}
+.join__button{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    width: 7rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(204, 204, 204, 0.568);
+    transition: all 0.2s;
+}
+.join__button > .MuiSvgIcon-root{
+    font-size: 1.8rem;
+}
+.join__button:hover{
+    transform: translateY(3px) scale(1.01);
+}

@@ -1,0 +1,15 @@
+.modal__desc{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__desc  .MuiFormControl-root{
+    width: 30rem !important;
+}
+.MuiFormControl-root{
+    margin-top: 3rem !important;
+}
+
+.MuiFormControl-root:last-child{
+    margin-bottom: 3rem !important;
+}

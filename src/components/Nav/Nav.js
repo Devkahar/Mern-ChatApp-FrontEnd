@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import "./Nav.css"
-const Nav = () => {
+const Nav = (props) => {
+    
     const renderNav = ()=>{
         if(!localStorage.getItem('token')){
             return(
@@ -16,7 +17,7 @@ const Nav = () => {
         }else{
             return (<div className="profile">
             <Avatar src={''} /> 
-            <h4>Dev Kahar</h4>
+            <h4>{props.userName}</h4>
             </div>);
         }
     }

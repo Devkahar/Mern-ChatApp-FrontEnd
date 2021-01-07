@@ -7,8 +7,15 @@ import Login from './containers/Login/Login';
 import Signup from './containers/Signup/Signup';
 import Chat from './containers/Chat/Chat';
 import Pusher from 'pusher-js';
+import { useDispatch, useSelector } from 'react-redux';
+import { isUserLoggedIn } from './action/actions';
 const App = () => {
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch()
     useEffect(()=>{
+        if(!auth.authenticate){
+            dispatch(isUserLoggedIn());
+        }
         // const pusher = new Pusher('9b822891a5982d38f046', {
         //     cluster: 'ap2'
         //   });
