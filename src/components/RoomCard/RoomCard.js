@@ -4,11 +4,14 @@ import AddIcon from '@material-ui/icons/Add';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
+import { registerRoom } from '../../action/room.action';
+import {useDispatch} from 'react-redux'
 const RoomCard = (props) => {
     const [open, setOpen] = useState(false);
     const [roomId,setRoomId] = useState('');
     const [roomName,setRoomName] = useState('');
     const [roomPassword,setRoomPassword] = useState('');
+    const dispatch = useDispatch();
     const handleOpen = () => {
         setOpen(true);
     };
@@ -18,7 +21,11 @@ const RoomCard = (props) => {
     };
 
     const registerRoomHandler = ()=>{
-
+        dispatch(registerRoom({ roomName,roomId,password:roomPassword}))
+        handleClose();
+        setRoomId('');
+        setRoomName('');
+        setRoomPassword('');
     }
     return (
         <>
@@ -31,8 +38,6 @@ const RoomCard = (props) => {
         onIdChange = {e => setRoomId(e.target.value)}
         onNameChange = {e => setRoomName(e.target.value)}
         onPasswordChange = {e => setRoomPassword(e.target.value)}
-
-
         onSubmit={registerRoomHandler}
 
         />

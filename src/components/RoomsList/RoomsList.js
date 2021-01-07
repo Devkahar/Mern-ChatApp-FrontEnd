@@ -14,10 +14,9 @@ const RoomsList = (props) => {
     },[props.rooms]);
     console.log(props.rooms);
     return (
-
         <div className="roomList">
             <RoomCard add/>
-            {roomsList.map(e =><RoomCard 
+            {roomsList.map(e =><RoomCard
             key={e._id} 
             roomName={e.roomName}
             author={`${e.author.firstName} ${e.author.lastName}`}

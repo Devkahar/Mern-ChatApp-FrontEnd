@@ -7,8 +7,7 @@ import RoomsList from '../../components/RoomsList/RoomsList'
 import { useSelector } from 'react-redux'
 
 const Home = () => {
-    const auth = useSelector(state => state.auth);
-    console.log(auth);
+    const rooms = useSelector(state => state.init.rooms);
     return (
         <Layout>
             <div className="home">
@@ -16,7 +15,7 @@ const Home = () => {
                     <h1 className="heading__Primary">Smooky Chat Rooms</h1>
                 </div>
                 <div className="">
-                    <RoomsList rooms={auth.user.rooms}/>
+                    <RoomsList rooms={rooms}/>
                 </div>
             </div>
         </Layout>

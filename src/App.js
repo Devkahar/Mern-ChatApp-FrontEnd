@@ -8,13 +8,16 @@ import Signup from './containers/Signup/Signup';
 import Chat from './containers/Chat/Chat';
 import Pusher from 'pusher-js';
 import { useDispatch, useSelector } from 'react-redux';
-import { isUserLoggedIn } from './action/actions';
+import { getInitData, isUserLoggedIn } from './action/actions';
 const App = () => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch()
     useEffect(()=>{
         if(!auth.authenticate){
             dispatch(isUserLoggedIn());
+        }
+        if(auth.authenticate){
+            dispatch(getInitData());
         }
         // const pusher = new Pusher('9b822891a5982d38f046', {
         //     cluster: 'ap2'
@@ -23,9 +26,8 @@ const App = () => {
         // channel.bind('inserted', (data) => {
         //   alert(JSON.stringify(data));
         // });
-    },[]);
+    },[auth]);
     return (
-        
         <Switch>
             <Route path="/" component={Home} exact/>
             <Route path="/login" component={Login}/>

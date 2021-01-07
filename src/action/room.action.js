@@ -1,4 +1,4 @@
-import { roomConstants } from "./constants"
+import { roomConstants, userConstants } from "./constants"
 import axios from '../helper/axios'
 
 
@@ -33,5 +33,41 @@ export const getRoomList =  (arr)=>{
 
 
     }
-    
+}
+export const getInitData = ()=>{
+    return async dispatch =>{
+        try {
+            dispatch({type: userConstants.GET_INIT_DATA_REQUEST});
+            const res = await axios.get('/getInitData');
+            if(res.status === 200){
+                console.log("Init Data",res.data);
+                dispatch({type: userConstants.GET_INIT_DATA_SUCCESS,payload:{rooms: res.data.rooms}});
+            }else{
+                dispatch({type: userConstants.GET_INIT_DATA_FAILURE,payload:{error: res.error}});
+            }
+        } catch (error) {
+            
+        }
+    }
+}
+export const registerRoom = (payload)=>{
+    return async dispatch =>{
+        try {
+            dispatch({type: roomConstants.REGISTER_ROOM_REQUEST});
+            const res = await axios.post('/room',payload);
+            if(res.status===201){
+                dispatch(getInitData());
+                dispatch({type: roomConstants.REGISTER_ROOM_SUCCESS,payload:{
+                    rooms: res.data.rooms
+                }})
+                console.log(res.data);
+            }else{
+                dispatch({type:roomConstants.REGISTER_ROOM_FAILURE,payload:{
+                    error: res.error,
+                }})
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
