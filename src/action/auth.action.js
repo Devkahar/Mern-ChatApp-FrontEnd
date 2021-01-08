@@ -1,5 +1,6 @@
 import {authConstants} from "./constants";
 import axios from '../helper/axios'
+import { getInitData } from "./room.action";
 export const login = (user)=>{
     return async (dispatch)=>{
         dispatch({type: authConstants.LOGIN_REQUEST});
@@ -18,6 +19,7 @@ export const login = (user)=>{
                     token,user
                 }
             })
+            dispatch(getInitData());
         }
         else{
             if(res.status === 400){

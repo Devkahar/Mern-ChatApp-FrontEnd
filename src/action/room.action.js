@@ -1,7 +1,6 @@
 import { roomConstants, userConstants } from "./constants"
 import axios from '../helper/axios'
 
-
 export const getRoomList =  (arr)=>{
     return async dispatch =>{
         try {
@@ -34,7 +33,7 @@ export const getRoomList =  (arr)=>{
 
     }
 }
-export const getInitData = ()=>{
+const getInitData = ()=>{
     return async dispatch =>{
         try {
             dispatch({type: userConstants.GET_INIT_DATA_REQUEST});
@@ -46,10 +45,11 @@ export const getInitData = ()=>{
                 dispatch({type: userConstants.GET_INIT_DATA_FAILURE,payload:{error: res.error}});
             }
         } catch (error) {
-            
+            console.log(error);
         }
     }
 }
+
 export const registerRoom = (payload)=>{
     return async dispatch =>{
         try {
@@ -70,4 +70,9 @@ export const registerRoom = (payload)=>{
             console.log(error);
         }
     }
+}
+
+
+export{
+    getInitData
 }

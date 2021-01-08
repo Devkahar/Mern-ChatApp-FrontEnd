@@ -1,0 +1,10 @@
+.chat-box{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.chat{
+    height: 85vh;
+    width: 90vw;
+    background-color: #fff;
+}

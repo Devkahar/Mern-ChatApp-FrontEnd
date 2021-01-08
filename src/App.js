@@ -26,7 +26,7 @@ const App = () => {
         // channel.bind('inserted', (data) => {
         //   alert(JSON.stringify(data));
         // });
-    },[auth]);
+    },[auth.authenticate]);
     return (
         <Switch>
             <Route path="/" component={Home} exact/>

@@ -1,0 +1,33 @@
+.list{
+    padding: 0 !important;
+    height: 85vh;
+    overflow-y: scroll;
+    border-right: 5px solid #eee;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+.listitem{
+    padding: 0 0 !important;
+}
+.listitem >a:hover{
+    background-color: #ccc !important
+}
+.listitem >a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+    padding: 8px 16px;
+    width: 100%;
+}
+.listitem >a.active{
+    background-color: #ccc !important
+}
