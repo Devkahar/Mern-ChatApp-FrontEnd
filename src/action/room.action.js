@@ -7,6 +7,7 @@ export const getRoomList =  (arr)=>{
             dispatch({type: roomConstants.GET_ROOM_DETAILS_REQUEST});
             const res = await  axios.post('/roomList',{roomIDArray: arr})
             if(res.status===200){
+                console.log(res.data);
                 dispatch({type: roomConstants.GET_ROOM_DETAILS_SUCCESS,payload: {roomDetails:res.data.roomDetails}});
             }else{
                 dispatch({type: roomConstants.GET_ROOM_DETAILS_FAILURE});

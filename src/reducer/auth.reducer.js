@@ -7,6 +7,7 @@ const initialState={
         lastName:'',
         email:'',
         picture:'',
+        _id: '',
     },
     authenticate: false,
     authenticating: false,

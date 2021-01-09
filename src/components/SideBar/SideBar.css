@@ -3,6 +3,7 @@
     height: 85vh;
     overflow-y: scroll;
     border-right: 5px solid #eee;
+    flex: 0.3;
 }
 
 .list::-webkit-scrollbar {

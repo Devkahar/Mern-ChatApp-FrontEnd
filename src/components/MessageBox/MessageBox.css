@@ -1,0 +1,26 @@
+.MessageBox{
+    flex: 0.8;
+}
+
+.displayMessages{
+    height: 90%;
+    width: 100%;
+    background-color: orange;
+    overflow-y: scroll;
+    padding: 7px;
+}
+
+.message{
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #eee;
+    width: fit-content;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.user{
+    margin-left: auto;
+    background-color: #c6e8f8;
+}

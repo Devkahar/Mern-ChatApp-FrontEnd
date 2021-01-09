@@ -32,8 +32,9 @@ const App = () => {
             <Route path="/" component={Home} exact/>
             <Route path="/login" component={Login}/>
             <Route path="/signup" component={Signup}/>
-            <Route path="/chat" component={Chat}/>
-        </Switch> 
+            <Route path="/chat/:id" component={Chat} />
+        </Switch>
+
     )
 }
 

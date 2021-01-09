@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRoomList } from '../../action/actions';
 import { Route, Router } from 'react-router-dom';
 import MessageBox from '../../components/MessageBox/MessageBox';
+import { getMessageBox } from '../../action/messages.action';
+import Pusher from 'pusher-js';
 const processMessage = (payload)=>{
     try {
         return JSON.parse(payload);
@@ -15,29 +17,24 @@ const processMessage = (payload)=>{
     }
     
 }
-const Chat = () => {
+
+const Chat = (props) => {
 
     const dispatch = useDispatch();
-    const rooms = useSelector(state => state.init.rooms)
-    const roomsList = useSelector(state => state.roomDetails.roomDetails)
+    const [roomId,setRoomId] = useState('');
     useEffect(()=>{
-        if(rooms){
-            dispatch(getRoomList(rooms));
-        }
-    },[rooms]);
-    console.log(rooms);
-    const sendMessage = ()=>{
-        // ID :- 5ff1d964fc961e59407c820e
-    }
+        setRoomId(props.match.params.id);
+        console.log("component Get Update");
+        
+    },[props.match])
     return (
         <Layout>
             <div className="chat-box">
                 <div className="chat">
-                <SideBar roomsList={roomsList}/>
-                <Route path="/chat/:id/:password" component={MessageBox} />
+                <SideBar />
+                <MessageBox roomId={roomId}/>
                 </div>
             </div>
-           
         </Layout>
     )
 }

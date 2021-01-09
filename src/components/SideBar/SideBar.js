@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -7,10 +7,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import "./SideBar.css"
 import { Link, NavLink } from 'react-router-dom';
+import { getRoomList } from '../../action/actions';
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
@@ -23,17 +24,26 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const SideBar = (props) => {
+    const dispatch = useDispatch();
     const classes = useStyles();
-    
-    console.log(props.roomsList);
+    const rooms = useSelector(state => state.init.rooms)
+    const roomsList = useSelector(state => state.roomDetails.roomDetails)
+    useEffect(()=>{
+        console.log("Component render")
+        //setRoom(rooms)
+        if(rooms){
+            dispatch(getRoomList(rooms));
+        }
+        
+    },[rooms]);
+    console.log(roomsList);
     return (
-        <div>
             
             <List className={`${classes.root} list`}>
-                {props.roomsList.map((room =>(
+                {roomsList.map((room =>(
                 
                     <ListItem alignItems="flex-start" className="listitem" key={room.roomId}>
-                    <NavLink to={`/chat/${room.roomId}/${room.password}`}>
+                    <NavLink to={`/chat/${room.roomId}`}>
                         <ListItemAvatar>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
                         </ListItemAvatar>
@@ -61,7 +71,6 @@ const SideBar = (props) => {
                 
                 
             </List>
-        </div>
     )
 }
 
