@@ -1,5 +1,6 @@
 import { roomConstants, userConstants } from "./constants"
 import axios from '../helper/axios'
+import  store from '../store/store'
 
 export const getRoomList =  (arr)=>{
     return async dispatch =>{
@@ -35,6 +36,7 @@ export const getRoomList =  (arr)=>{
     }
 }
 const getInitData = ()=>{
+    console.log(localStorage.getItem('token'));
     return async dispatch =>{
         try {
             dispatch({type: userConstants.GET_INIT_DATA_REQUEST});
@@ -69,6 +71,26 @@ export const registerRoom = (payload)=>{
             }
         } catch (error) {
             console.log(error);
+        }
+    }
+}
+export const getGlobalRooms = ()=>{
+    const rooms = store.getState().auth.user.rooms;
+    return async dispatch =>{
+        if(rooms){
+            try {
+                dispatch({type: roomConstants.GET_GLOBAL_ROOMS_REQUEST});
+    
+                const res = await axios.get('/gobalRooms',{userRooms: rooms});
+                if(res.status===200){
+
+                    dispatch({type: roomConstants.GET_GLOBAL_ROOMS_SUCCESS,payload: {roomDetails:res.data.roomDetails}});
+            }else{
+                dispatch({type: roomConstants.GET_GLOBAL_ROOMS_FAILURE});
+            }
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ const Login = () => {
         dispatch(login({email,password}))
         setEmail('');
         setPassword('');
+        history.push('/')
     }
     if(auth.authenticate){
         return <Redirect to="/"/>

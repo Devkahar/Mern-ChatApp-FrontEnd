@@ -48,6 +48,7 @@ export const isUserLoggedIn= ()=>{
                     token,user
                 }
             })
+            dispatch(getInitData());
         }else{
             dispatch({
                 type: authConstants.LOGIN_FAILURE,
@@ -72,7 +73,7 @@ export const signout = ()=>{
             })
         }else{
             dispatch({
-                type: authConstants.LOGIN_FAILURE
+                type: authConstants.LOGOUT_FAILURE
             })
         }
     }

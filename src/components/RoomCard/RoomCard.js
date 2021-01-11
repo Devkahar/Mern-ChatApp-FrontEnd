@@ -27,23 +27,9 @@ const RoomCard = (props) => {
         setRoomName('');
         setRoomPassword('');
     }
-    return (
-        <>
-        <Modal heading={'Register Room'} 
-        open={open} 
-        onClose={handleClose} 
-        name={roomName}
-        id={roomId}
-        pass={roomPassword}
-        onIdChange = {e => setRoomId(e.target.value)}
-        onNameChange = {e => setRoomName(e.target.value)}
-        onPasswordChange = {e => setRoomPassword(e.target.value)}
-        onSubmit={registerRoomHandler}
 
-        />
-        <div className="card">
-        <div className="RoomCard">
-            {props.add? 
+    const renderUserRooms = ()=>{
+        return (props.add? 
             <>
                 <h1>Create Room</h1>
                 <div className="addIcon" onClick={()=> setOpen(true)}>
@@ -58,9 +44,42 @@ const RoomCard = (props) => {
                     
                 </div>
                 <Link className="join__button" to={`/chat/${props.roomId}`} >
-                    <TelegramIcon/> Join
+                    <TelegramIcon/> chat
                 </Link>
-            </>}
+            </>)
+
+    }
+    const renderGlobalRooms = ()=>{
+        return (
+            <>
+                <h1>{props.roomName}</h1>
+                <div className="roomDetails">   
+                    <span><strong>Member:</strong>  {props.members}</span>     
+                </div>
+                <div className="join__button">
+                    <AddIcon /> JOIN
+                </div>
+            </>
+        )
+    }
+    return (
+        <>
+        <Modal heading={'Register Room'} 
+        open={open} 
+        onClose={handleClose}
+        name={roomName}
+        id={roomId}
+        pass={roomPassword}
+        onIdChange = {e => setRoomId(e.target.value)}
+        onNameChange = {e => setRoomName(e.target.value)}
+        onPasswordChange = {e => setRoomPassword(e.target.value)}
+        onSubmit={registerRoomHandler}
+
+        />
+        <div className="card">
+        <div className="RoomCard">
+            {props.userRoom?renderUserRooms(): renderGlobalRooms()}
+            
             
         </div>
         </div>
