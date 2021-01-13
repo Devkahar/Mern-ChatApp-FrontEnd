@@ -39,8 +39,15 @@ const RoomCard = (props) => {
     }
     const joinRoomHandler = ()=>{
         axiosInstance.post(`/joinRoom/${props.roomId}`, {password: roomPassword})
-        .then(res => console.log("Join Room",res))
-        .catch(error => console.log(error));
+        .then(res => {
+            props.handleClick({message: "Join Succcessfully",severity:"success"});
+            console.log("Join Room",res);
+            
+        })
+        .catch(error =>{ 
+            props.handleClick({message: "Invalid Password",severity:"error"});
+            console.log(error)
+        });
         handleClose();
         
     }

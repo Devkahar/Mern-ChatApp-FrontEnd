@@ -29,6 +29,7 @@ const RoomsList = (props) => {
             author={`${e?.author?.firstName} ${e?.author?.lastName}`}
             members = {e.participants.length}
             roomId={e.roomId}
+            handleClick={props.handleClick}
             />)}
         </div>
     )
