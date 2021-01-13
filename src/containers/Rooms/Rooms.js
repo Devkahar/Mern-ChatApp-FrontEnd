@@ -9,7 +9,7 @@ const Rooms = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getGlobalRooms());
-    },[globalRoomsList]);
+    },[]);
     return (
         <Layout>
             <h1>Global Rooms</h1>

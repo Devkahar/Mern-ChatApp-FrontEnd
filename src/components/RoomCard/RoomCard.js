@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 import "./RoomCard.css"
 import AddIcon from '@material-ui/icons/Add';
 import TelegramIcon from '@material-ui/icons/Telegram';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import { registerRoom } from '../../action/room.action';
 import {useDispatch} from 'react-redux'
+import axiosInstance from '../../helper/axios';
 const RoomCard = (props) => {
     const [open, setOpen] = useState(false);
     const [roomId,setRoomId] = useState('');
     const [roomName,setRoomName] = useState('');
     const [roomPassword,setRoomPassword] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
     const registerRoomInputs = [
         {type: 'text', label:'Room Name', placeHolder: 'Room Name', value:'name', onChange: 'onNameChange'},
         {type: 'text', label:'Room Id', placeHolder: 'Id Must be unique', value:'id', onChange: 'onIdChange'},
@@ -36,6 +38,10 @@ const RoomCard = (props) => {
         setRoomPassword('');
     }
     const joinRoomHandler = ()=>{
+        axiosInstance.post(`/joinRoom/${props.roomId}`, {password: roomPassword})
+        .then(res => console.log("Join Room",res))
+        .catch(error => console.log(error));
+        handleClose();
         
     }
     const renderUserRooms = ()=>{
@@ -104,7 +110,7 @@ const RoomCard = (props) => {
                 inputs={joinRoomInputs}
                 pass={roomPassword}
                 onPasswordChange = {e => setRoomPassword(e.target.value)}
-                onSubmit={registerRoomHandler}
+                onSubmit={joinRoomHandler}
             />
         }
         <div className="card">
