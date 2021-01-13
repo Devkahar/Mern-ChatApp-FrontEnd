@@ -11,6 +11,8 @@
     box-shadow: 2px 5px 8px rgb(170, 71, 71);
     z-index: 5;
     transition: all 0.2s ease;
+    margin-bottom: 3rem;
+    margin-right: 3rem;
 }
 .RoomCard >h1{
     font-size: 4rem;
@@ -18,11 +20,7 @@
 .addIcon> .MuiSvgIcon-root{
     font-size: 12rem;
 }
-.RoomCard:hover{
-}
-.card:not(:last-child){
-    margin-right: 6rem;
-}
+
 .card{
     display: inline-block;
 }

@@ -13,14 +13,15 @@ const RoomsList = (props) => {
         }
     },[props.rooms]);
 
-
     useEffect(()=>{
         setRoomsList(props.roomList)
     },[props.roomList])
     console.log(props.rooms);
     return (
         <div className="roomList">
+            {props.add &&
             <RoomCard add={props.add} userRoom={props.userRoom}/>
+            }
             {roomsList?.map(e =><RoomCard
             userRoom={props.userRoom}
             key={e.roomId}

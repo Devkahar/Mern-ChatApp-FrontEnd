@@ -12,6 +12,14 @@ const RoomCard = (props) => {
     const [roomName,setRoomName] = useState('');
     const [roomPassword,setRoomPassword] = useState('');
     const dispatch = useDispatch();
+    const registerRoomInputs = [
+        {type: 'text', label:'Room Name', placeHolder: 'Room Name', value:'name', onChange: 'onNameChange'},
+        {type: 'text', label:'Room Id', placeHolder: 'Id Must be unique', value:'id', onChange: 'onIdChange'},
+        {type: 'password', label:'Password', placeHolder: 'Password', value: 'pass', onChange: 'onPasswordChange'}
+    ]
+    const joinRoomInputs = [
+        {type: 'password', label:'Password', placeHolder: 'Password', value: 'pass', onChange: 'onPasswordChange'}
+    ]
     const handleOpen = () => {
         setOpen(true);
     };
@@ -27,7 +35,9 @@ const RoomCard = (props) => {
         setRoomName('');
         setRoomPassword('');
     }
-
+    const joinRoomHandler = ()=>{
+        
+    }
     const renderUserRooms = ()=>{
         return (props.add? 
             <>
@@ -37,13 +47,11 @@ const RoomCard = (props) => {
                 </div>
             </>:
             <>
-                <h1>{props.roomName}</h1>
+                <h1>Your Chat Rooms</h1>
                 <div className="roomDetails">
-                    <span><strong>Admin:</strong>  {props.author}</span>     
-                    <span><strong>Member:</strong>  {props.members}</span>     
-                    
+
                 </div>
-                <Link className="join__button" to={`/chat/${props.roomId}`} >
+                <Link className="join__button" to={`/chat`} >
                     <TelegramIcon/> chat
                 </Link>
             </>)
@@ -51,36 +59,57 @@ const RoomCard = (props) => {
     }
     const renderGlobalRooms = ()=>{
         return (
+            props.goTo ?
+            <>
+                <h1>Global Rooms</h1>
+                <div className="roomDetails">   
+                    <span>Join Friends Rooms</span>     
+                </div>
+                <Link className="join__button" to={'/Rooms'}>
+                    <TelegramIcon /> Go
+                </Link>
+            </>
+            :
+            props.roomName &&
             <>
                 <h1>{props.roomName}</h1>
                 <div className="roomDetails">   
                     <span><strong>Member:</strong>  {props.members}</span>     
                 </div>
-                <div className="join__button">
+                <div className="join__button" onClick={()=> setOpen(true)}>
                     <AddIcon /> JOIN
                 </div>
             </>
         )
     }
+
     return (
         <>
+        {props.add? 
         <Modal heading={'Register Room'} 
-        open={open} 
-        onClose={handleClose}
-        name={roomName}
-        id={roomId}
-        pass={roomPassword}
-        onIdChange = {e => setRoomId(e.target.value)}
-        onNameChange = {e => setRoomName(e.target.value)}
-        onPasswordChange = {e => setRoomPassword(e.target.value)}
-        onSubmit={registerRoomHandler}
-
-        />
+            open={open}
+            onClose={handleClose}
+            inputs={registerRoomInputs}
+            name={roomName}
+            id={roomId}
+            pass={roomPassword}
+            onNameChange = {e => setRoomName(e.target.value)}
+            onIdChange = {e => setRoomId(e.target.value)}
+            onPasswordChange = {e => setRoomPassword(e.target.value)}
+            onSubmit={registerRoomHandler}
+        />:
+            <Modal heading={props.roomName}
+                open={open}
+                onClose={handleClose}
+                inputs={joinRoomInputs}
+                pass={roomPassword}
+                onPasswordChange = {e => setRoomPassword(e.target.value)}
+                onSubmit={registerRoomHandler}
+            />
+        }
         <div className="card">
         <div className="RoomCard">
             {props.userRoom?renderUserRooms(): renderGlobalRooms()}
-            
-            
         </div>
         </div>
         </>

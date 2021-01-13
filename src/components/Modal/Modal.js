@@ -41,14 +41,17 @@ export default function TransitionsModal(props) {
             <h2 id="transition-modal-title">{props.heading}</h2>
             {/* <p id="transition-modal-description">react-transition-group animates me.</p> */}
             <div className="modal__desc">
-                <TextField value={props.name} id="outlined-basic" label="Room Name" variant="outlined" onChange={props.onNameChange} />
+                {props.inputs?.map(e => (
+                  <TextField type={e.type} key={e.label} value={props[e.value]} id="outlined-basic" label={e.label} variant="outlined" onChange={props[e.onChange]} />
+                ))}
+                {/* <TextField value={props.name} id="outlined-basic" label="Room Name" variant="outlined" onChange={props.onNameChange} />
                 <TextField  value={props.id} id="outlined-basic" label="Room Id" variant="outlined" 
                     onChange={props.onIdChange}
                     placeholder="Enter uniqueId"
                 />
                 <TextField value={props.pass}  id="outlined-basic" label="Room Password" variant="outlined" 
                     onChange={props.onPasswordChange}
-                />
+                /> */}
             </div>
             <div className="buttons">
             <Button onClick={props.onClose} variant='contained' color='secondary'>Close</Button>
