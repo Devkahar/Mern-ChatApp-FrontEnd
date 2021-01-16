@@ -41,7 +41,7 @@ const SideBar = (props) => {
             
             <List className={`${classes.root} list`}>
                 {roomsList.map((room =>(
-                
+                    <>
                     <ListItem alignItems="flex-start" className="listitem" key={room.roomId}>
                     <NavLink to={`/chat/${room.roomId}`}>
                         <ListItemAvatar>
@@ -66,8 +66,9 @@ const SideBar = (props) => {
                         />
                     </NavLink>
                 </ListItem>
-                )))}
                 <Divider variant="inset" component="li" />
+                </>
+                )))}
                 
                 
             </List>

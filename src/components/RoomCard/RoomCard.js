@@ -99,7 +99,7 @@ const RoomCard = (props) => {
     return (
         <>
         {props.add? 
-        <Modal heading={'Register Room'} 
+        <Modal heading={'Register Room'}
             open={open}
             onClose={handleClose}
             inputs={registerRoomInputs}

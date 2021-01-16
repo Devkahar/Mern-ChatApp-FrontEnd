@@ -1,6 +1,5 @@
 .list{
     padding: 0 !important;
-    height: 85vh;
     overflow-y: scroll;
     border-right: 5px solid #eee;
     flex: 0.3;
@@ -19,7 +18,7 @@
     padding: 0 0 !important;
 }
 .listitem >a:hover{
-    background-color: #ccc !important
+    background-color: rgb(233, 233, 233) !important;
 }
 .listitem >a {
     display: flex;
@@ -30,5 +29,5 @@
     width: 100%;
 }
 .listitem >a.active{
-    background-color: #ccc !important
+    background-color: rgb(233, 233, 233) !important
 }

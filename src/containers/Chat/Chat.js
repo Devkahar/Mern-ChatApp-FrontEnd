@@ -31,7 +31,6 @@ const Chat = (props) => {
             <div className="chat-box">
                 <div className="chat">
                 <SideBar />
-
                 {props.match &&
                 <MessageBox roomId={roomId}/>
                 }

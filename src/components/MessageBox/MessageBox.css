@@ -4,11 +4,23 @@
 
 .displayMessages{
     height: 90%;
-    width: 100%;
+    width: 99%;
     background-color: orange;
     overflow-y: scroll;
     padding: 7px;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.displayMessages::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.displayMessages {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
 
 .message{
     position: relative;
