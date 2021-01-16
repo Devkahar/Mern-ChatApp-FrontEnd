@@ -15,7 +15,7 @@ const Home = () => {
                 <div className="home__header">
                     <h1 className="heading__Primary">Smooky Chat Rooms</h1>
                 </div>
-                <div className="">
+                <div className="home__cards">
                     <RoomCard add={true} userRoom={true}/>
                     <RoomCard add={false} userRoom={true}/>
                     <RoomCard goTo={true}/>

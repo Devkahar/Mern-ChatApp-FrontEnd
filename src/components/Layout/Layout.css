@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to bottom right,rgb(203, 2, 230),rgb(255, 176, 5));
+    /* background-image: linear-gradient(to bottom right,rgb(203, 2, 230),rgb(255, 176, 5)); */
+    background-color: #00F0FC;
     justify-content: center;
 }

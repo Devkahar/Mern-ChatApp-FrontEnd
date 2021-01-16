@@ -1,6 +1,6 @@
 .nav{
     display: flex;
-    padding: 2rem 8rem;
+    padding: 2rem 5vw;
     justify-content: flex-end;
     align-items: center;
 }
@@ -31,10 +31,16 @@
 .profile{
     display: flex;
     justify-content: space-between;
+    text-transform: capitalize;
     align-items: center;
+    letter-spacing: 1.3px;
     min-width: 12rem;
-    background-color: #fff;
+    background-color: #006B70;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
+    color: #00F0FC;
     padding: 0.5rem;
+}
+.profile > h4{
+    margin-left: 5px;
 }

@@ -4,11 +4,12 @@
     align-items: center;
     justify-content: space-evenly;
     min-width: 28rem;
-    background-color: rgba(255, 255, 255, 0.294);
+    /* background-color: rgba(255, 255, 255, 0.294); */
+    background-color: rgb(255, 255, 255);
     height: 28rem;
-    color: #fff;
+    color: #006B70;
     border-radius: 10px;
-    box-shadow: 2px 5px 8px rgb(170, 71, 71);
+    box-shadow: 0px 5px 8px rgb(170, 71, 71);
     z-index: 5;
     transition: all 0.2s ease;
     margin-bottom: 3rem;
@@ -39,8 +40,8 @@
     align-items: center;
     padding: 5px;
     text-decoration: none;
-    color: #000;
-    background-color: #fff;
+    color: #00F0FC;
+    background-color:#006B70;
     width: 7rem;
     font-size: 1.8rem;
     font-weight: 700;
@@ -53,5 +54,5 @@
     font-size: 1.8rem;
 }
 .join__button:hover{
-    transform: translateY(3px) scale(1.01);
+    transform: scale(1.1);
 }

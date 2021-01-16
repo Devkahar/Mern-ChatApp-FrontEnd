@@ -1,11 +1,13 @@
 .MessageBox{
     flex: 0.8;
+    width: 100%;
 }
 
 .displayMessages{
     height: 90%;
-    width: 99%;
-    background-color: orange;
+    background-image: url('https://i.pinimg.com/564x/7f/16/fd/7f16fd9daa615efa8610b71e749b8295.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: scroll;
     padding: 7px;
 }
@@ -35,4 +37,30 @@
 .user{
     margin-left: auto;
     background-color: #c6e8f8;
+}
+
+.messageInput{
+    display: flex;
+    height: 7.6%;
+    align-items: center;
+    justify-content:space-between;
+    background-color: #006B70;
+    color: #00F0FC;
+}
+.text__input{
+    flex: 0.95;
+}
+.text__input> input {
+    border: 2px solid #000 !important;
+    border-radius: 5rem;
+    width:100% !important;
+    outline: none;
+    font-size: 2rem;
+    height: 90%;
+    padding: 0.5rem;
+}
+
+.messageInput > .MuiButtonBase-root {
+    font-size: 2rem;
+    color: #00F0FC;
 }

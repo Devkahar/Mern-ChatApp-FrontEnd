@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    margin-bottom: 8rem;
 }
 .heading__Primary{
     font-size: 6rem;
@@ -15,10 +16,13 @@
     letter-spacing: 7px;
     color: #ffffff;
     word-spacing: 10px;
-
 }
 
 .buttons{
     display: flex;
     justify-content: space-around;
+}
+.home__cards{
+    display: flex;
+    justify-content: center;
 }

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Input } from "@material-ui/core"
+import { Button, IconButton, Input } from "@material-ui/core"
 import "./MessageBox.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { getMessageBox,postMessage } from '../../action/messages.action';
 import Pusher from 'pusher-js';
+import TelegramIcon from '@material-ui/icons/Telegram';
+import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 const MessageBox = ({roomId}) => {
     const [message,setMessage] = useState('');
     const auth = useSelector(state => state.auth.user)
@@ -48,8 +51,18 @@ const MessageBox = ({roomId}) => {
                 ))}
             </div>
             <div className="messageInput">
-                <Input value={message} onChange={e => setMessage(e.target.value)} />
-                <Button onClick={changeMessageHandler}>Send</Button>
+                
+                <IconButton>
+                    <EmojiEmotionsIcon/>
+                </IconButton>
+                
+                <IconButton>
+                    <AttachFileIcon/>
+                </IconButton>
+                <div className="text__input">
+                <input value={message} onChange={e => setMessage(e.target.value)} />
+                </div>
+                <IconButton type="submit" onClick={changeMessageHandler}><TelegramIcon/></IconButton>
             </div>
         </div>
     )
